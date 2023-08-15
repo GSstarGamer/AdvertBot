@@ -37,6 +37,7 @@ AdvertBot is an easy-to-use solution for automating your Discord messages. Wheth
 -   **Simplicity**: Designed with user-friendliness in mind, AdvertBot streamlines the process of automating Discord messages.
 -   **Smart Cooldown**: AdvertBot intelligently manages cooldowns to avoid rate limits, preventing the same channel from receiving messages until the cooldown period ends.
 -   **Dynamic Channel Management**: If a channel is no longer available, AdvertBot automatically removes it from the list, further avoiding rate limits.
+-   **Auto message update**: When message changed in file. It updates instantly, without having to reload script.
 
 Discover the convenience of AdvertBot – automation made simple. Created with care to elevate your Discord messaging experience.
 
