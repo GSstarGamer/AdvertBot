@@ -1,14 +1,17 @@
+from aiohttp import web
 import discord
 from discord.ext import commands, tasks
 import PyUtls as logger
 import os
 import json
 import asyncio
+from threading import Thread
 
 
 with open('logo.txt', 'r') as f:
     logger.settings.logo = logger.colors.gradientText(
         f.read(), (145, 0, 255), (255, 0, 0), logger.columns())
+    logoN = f.read()
 
 
 logger.settings.logoOnClear = True
@@ -22,6 +25,32 @@ logger.projectDetails.version = '0.1'
 with open('config.json', 'r') as f:
     config = json.load(f)
 
+
+async def loadReplit():
+    if config['replit247']:
+        app = web.Application()
+
+        async def home(request):
+            return web.Response(text=logoN+'\nRunning replit 24/7')
+
+        app.router.add_get('/', home)
+
+        def run():
+            web.run_app(app, host='0.0.0.0', port=8080)
+
+        def keep_alive():
+            try:
+                loop = asyncio.get_event_loop()
+                loop.create_task(run())
+            except:
+                pass
+
+        keep_alive()
+
+        try:
+            asyncio.get_event_loop().run_forever()
+        except KeyboardInterrupt:
+            pass
 logger.startUp(False)
 bot = commands.Bot(command_prefix=config['prefix'],
                    help_command=None, self_bot=True)
@@ -56,6 +85,7 @@ async def on_ready():
 
     await load_modules()
     logger.success(f'Ready, Logged as {bot.user.name}')
+    await loadReplit()
     logger.log(
         f'Got channels: {", ".join([channel.name for channel in bot.channels])}')
 
