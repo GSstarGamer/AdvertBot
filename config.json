@@ -1,0 +1,17 @@
+{
+    "token": "",
+    "prefix": ";",
+    "channels": [1140744856826806283, 1140744890851008563, 1140781923518652499, 1140774593984991332],
+    "messagePath": "./message.txt",
+    "loopDelay": {
+        "seconds": 10,
+        "minutes": 0,
+        "hours": 0
+    },
+    "itterDelay": 0.5,
+
+    "autoReply": {
+        "enabled": false,
+        "autoReplyMessage": "dawg im a sleep rn"
+    }
+}
