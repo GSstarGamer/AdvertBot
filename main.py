@@ -3,8 +3,8 @@ from discord.ext import commands
 import PyUtls as logger
 import os
 import json
-import asyncio
-
+from threading import Thread
+from flask import Flask
 
 with open('logo.txt', 'r') as f:
     logger.settings.logo = logger.colors.gradientText(
@@ -24,31 +24,30 @@ with open('config.json', 'r') as f:
     config = json.load(f)
 
 
-async def loadReplit():
+def loadReplit():
     if config['replit247']:
-        app = web.Application()
+        app = Flask('')
 
-        async def home(request):
-            return web.Response(text=logoN+'\nRunning replit 24/7')
-
-        app.router.add_get('/', home)
+        @app.route('/')
+        def home():
+            return (logoN+'\nRunning replit 24/7')
 
         def run():
-            web.run_app(app, host='0.0.0.0', port=8080)
+            app.run(
+                host='0.0.0.0',
+                port=8080
+            )
 
         def keep_alive():
-            try:
-                loop = asyncio.get_event_loop()
-                loop.create_task(run())
-            except:
-                pass
+            '''
+            Creates and starts new thread that runs the function run.
+            '''
+            t = Thread(target=run)
+            t.start()
 
         keep_alive()
 
-        try:
-            asyncio.get_event_loop().run_forever()
-        except KeyboardInterrupt:
-            pass
+
 logger.startUp(False)
 bot = commands.Bot(command_prefix=config['prefix'],
                    help_command=None, self_bot=True)
@@ -82,8 +81,9 @@ async def on_ready():
             exit()
 
     await load_modules()
+    logger.waitForStartup()
+    loadReplit()
     logger.success(f'Ready, Logged as {bot.user.name}')
-    await loadReplit()
     logger.log(
         f'Got channels: {", ".join([channel.name for channel in bot.channels])}')
 

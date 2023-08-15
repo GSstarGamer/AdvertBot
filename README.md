@@ -9,7 +9,7 @@ AdvertBot is an easy-to-use solution for automating your Discord messages. Wheth
 1.  Install the required packages:
     -   `discord.py-self`: `pip install discord.py-self`
     -   `requests`: Install it if you don't have it already with `pip install requests`
-    -   `aiohttp`: `pip install aiohttp` if you want 24/7 replit
+    -   `Flask`: `pip install flask` if you want 24/7 replit. BUT this should already be there.
 
 ## Configuration
 
