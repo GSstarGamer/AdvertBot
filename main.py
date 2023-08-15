@@ -1,11 +1,9 @@
 from aiohttp import web
-import discord
-from discord.ext import commands, tasks
+from discord.ext import commands
 import PyUtls as logger
 import os
 import json
 import asyncio
-from threading import Thread
 
 
 with open('logo.txt', 'r') as f:
