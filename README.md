@@ -38,6 +38,7 @@ AdvertBot is an easy-to-use solution for automating your Discord messages. Wheth
 -   **Smart Cooldown**: AdvertBot intelligently manages cooldowns to avoid rate limits, preventing the same channel from receiving messages until the cooldown period ends.
 -   **Dynamic Channel Management**: If a channel is no longer available, AdvertBot automatically removes it from the list, further avoiding rate limits.
 -   **Auto message update**: When message changed in file. It updates instantly, without having to reload script.
+-   **Replit 24/7**: Enable the `replit247` and read [this](https://stackoverflow.com/questions/54722596/keep-discord-bot-online-on-repl-it) if you want to host this bot on replit
 
 Discover the convenience of AdvertBot – automation made simple. Created with care to elevate your Discord messaging experience.
 
