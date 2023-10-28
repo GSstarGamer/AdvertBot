@@ -40,6 +40,11 @@ AdvertBot is an easy-to-use solution for automating your Discord messages. Wheth
 -   **Auto message update**: When message changed in file. It updates instantly, without having to reload script.
 -   **Replit 24/7**: Enable the `replit247` and read [this](https://stackoverflow.com/questions/54722596/keep-discord-bot-online-on-repl-it) if you want to host this bot on replit
 
+## Showcase :O (csgo bhop music fr)
+https://github.com/GSstarGamer/AdvertBot/assets/75359453/5d53b34f-a568-4d54-be86-0995975e9710
+
+
+
 Discover the convenience of AdvertBot – automation made simple. Created with care to elevate your Discord messaging experience.
 
 dawg i hate typing so i used chatGPT sorry lol
