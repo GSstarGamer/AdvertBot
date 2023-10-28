@@ -12,7 +12,6 @@ class autoReplyCog(commands.Cog):
         self.enabled = self.config['autoReply']['enabled']
         self.messageToSend = self.config['autoReply']['autoReplyMessage']
 
-    @commands.cooldown(rate=1, per=5, type=commands.BucketType.user)
     @commands.Cog.listener()
     async def on_message(self, ctx: commands.Context) -> None:
         if self.enabled and isinstance(ctx.channel, discord.channel.DMChannel) and ctx.author != self.bot.user:
