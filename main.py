@@ -4,7 +4,7 @@ import PyUtls as logger
 import os
 import json
 from threading import Thread
-from flask import Flask
+
 
 with open('logo.txt', 'r') as f:
     logger.settings.logo = logger.colors.gradientText(
@@ -26,6 +26,7 @@ with open('config.json', 'r') as f:
 
 def loadReplit():
     if config['replit247']:
+        from flask import Flask
         app = Flask('')
 
         @app.route('/')
